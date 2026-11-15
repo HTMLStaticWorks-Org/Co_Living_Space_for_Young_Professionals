@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>House Announcements & Events Broadcast — Nestly Co-Living Portal</title>
+  <meta name="description" content="Send push notices and event invites to specific houses or floors.">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body>
+  <a href="#dashboard-main" class="skip-link">Skip to dashboard content</a>
+
+  <div class="dashboard-shell">
+    <!-- SIDEBAR -->
+    <aside class="dashboard-sidebar" aria-label="Portal Navigation">
+      <div class="sidebar-brand">
+        <a href="../index.html" class="brand-logo">
+          <span class="brand-mark">N</span>
+          <span>Nestly</span>
+        </a>
+        <span class="sidebar-role-badge">Admin Console</span>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Sidebar Menu">
+        <div class="sidebar-section-label">House Operations</div>
+        <a href="overview.html" class="sidebar-link"><span>Portfolio Overview</span></a>
+        <a href="residents.html" class="sidebar-link"><span>Resident Directory</span></a>
+        <a href="rooms-occupancy.html" class="sidebar-link"><span>Rooms & Occupancy</span></a>
+        <a href="payments.html" class="sidebar-link"><span>Rent & Escrow Ledger</span></a>
+        <a href="maintenance-queue.html" class="sidebar-link"><span>Maintenance Queue</span></a>
+        <a href="bookings.html" class="sidebar-link"><span>Tours & Reservations</span></a>
+        <a href="announcements.html" class="sidebar-link is-active"><span>Broadcast Notices</span></a>
+        <a href="reports.html" class="sidebar-link"><span>Analytics & Reports</span></a>
+
+        <div class="sidebar-section-label">Quick Links</div>
+        <a href="../dashboard/dashboard.html" class="sidebar-link"><span>Switch to Resident View →</span></a>
+        <a href="../index.html" class="sidebar-link"><span>← Public Website</span></a>
+      </nav>
+
+      <div class="sidebar-user-card">
+        <div style="width:42px;height:42px;border-radius:50%;background:var(--clay);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;flex-shrink:0;">KN</div>
+        <div style="min-width:0;">
+          <div style="font-weight:700;font-size:0.9rem;color:var(--cream);">Karthik Nair</div>
+          <div style="font-size:0.75rem;color:rgba(251,246,238,0.68);">House Captain • Indiranagar</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN WORKSPACE -->
+    <div class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button type="button" class="icon-btn mobile-menu-toggle" data-sidebar-toggle aria-label="Toggle Sidebar Menu">☰</button>
+          <div>
+            <span class="font-mono" style="font-size:0.74rem;color:var(--teal);text-transform:uppercase;font-weight:700;">Nestly Admin Operations</span>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button type="button" class="icon-btn" data-rtl-toggle aria-label="Switch RTL">RTL</button>
+          <button type="button" class="icon-btn" data-theme-toggle aria-label="Toggle Dark Mode">◐</button>
+          <a href="../book-now.html" class="btn btn-primary" style="height:40px;padding-inline:18px;font-size:0.84rem;">Add New Booking</a>
+        </div>
+      </header>
+
+      <main id="dashboard-main" class="dashboard-content">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px;">
+          <div>
+            <span class="section-tag">Admin Console</span>
+            <h1 style="font-size:var(--text-2xl);">House Announcements & Events Broadcast</h1>
+            <p style="color:var(--text-secondary);">Send push notices and event invites to specific houses or floors.</p>
+          </div>
+        </div>
+
+
+        <div class="grid-2" style="align-items:start;">
+          <article class="tilt-card" style="background:var(--bg-surface);">
+            <span class="card-tag">Push to Resident Portal &amp; WhatsApp</span>
+            <h3>Broadcast New House Announcement</h3>
+            <form data-validate data-success-msg="Broadcast sent to all 123 residents across selected houses!" style="width:100%;display:flex;flex-direction:column;gap:var(--space-4);margin-top:var(--space-3);">
+              <div class="form-field">
+                <label for="annHouse">Target Houses</label>
+                <select id="annHouse" class="form-control">
+                  <option value="all">All 3 Bengaluru Houses (123 Residents)</option>
+                  <option value="ind">Indiranagar 100ft Grove Only</option>
+                  <option value="kor">Koramangala 4th Block Only</option>
+                  <option value="hsr">HSR Sector 2 Parkside Only</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="annTitle">Announcement Headline *</label>
+                <input type="text" id="annTitle" class="form-control" placeholder="e.g. Rooftop Pizza & Acoustic Night This Friday at 8 PM" required>
+              </div>
+              <div class="form-field">
+                <label for="annBody">Message Details *</label>
+                <textarea id="annBody" class="form-control" placeholder="Write the announcement details..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Publish Broadcast</button>
+            </form>
+          </article>
+
+          <article class="tilt-card" style="background:var(--bg-surface);">
+            <span class="card-tag">Recent Dispatches</span>
+            <h3>Published House Bulletins</h3>
+            <div style="width:100%;display:flex;flex-direction:column;gap:14px;text-align:start;margin-top:var(--space-3);">
+              <div style="padding:14px;background:var(--bg-card);border-radius:var(--radius-sm);">
+                <strong>🥟 Thursday Chili-Oil Dumpling Supper Club</strong>
+                <p style="font-size:0.85rem;">Sent to Indiranagar Grove • 18 RSVPs confirmed</p>
+              </div>
+              <div style="padding:14px;background:var(--bg-card);border-radius:var(--radius-sm);">
+                <strong>⚡ Quarterly Solar Inverter Check Complete</strong>
+                <p style="font-size:0.85rem;">Sent to All Houses • Zero downtime recorded</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/plugins/charts.js" defer></script>
+  <script src="../assets/js/dashboard.js" defer></script>
+</body>
+</html>

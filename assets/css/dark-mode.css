@@ -1,0 +1,110 @@
+/* ==========================================================================
+   NESTLY CO-LIVING — DARK MODE STYLESHEET (dark-mode.css)
+   Palette: Background #0B1A19, Surfaces #12292B, Text #F4EFE6, Accents Clay/Saffron
+   ========================================================================== */
+
+[data-theme="dark"],
+body.dark-mode {
+  --bg-page: #0B1A19;
+  --bg-alt: #0F2322;
+  --bg-card: #12292B;
+  --bg-surface: #163235;
+  --bg-glass: rgba(11, 26, 25, 0.88);
+  --text-primary: #F4EFE6;
+  --text-secondary: #C8D6D3;
+  --text-muted: #93ABA8;
+  --border-subtle: rgba(244, 239, 230, 0.12);
+  --border-strong: rgba(245, 184, 75, 0.3);
+
+  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] body::before {
+  background-image: radial-gradient(#F4EFE6 0.75px, transparent 0.75px);
+  opacity: 0.02;
+}
+
+[data-theme="dark"] .eyebrow,
+[data-theme="dark"] .section-tag,
+[data-theme="dark"] .card-tag {
+  background: rgba(245, 184, 75, 0.14);
+  color: var(--saffron);
+}
+
+[data-theme="dark"] .card-icon {
+  background: rgba(20, 116, 111, 0.28);
+  color: var(--saffron);
+}
+
+[data-theme="dark"] .card-price {
+  color: var(--saffron);
+}
+
+[data-theme="dark"] .btn-secondary {
+  color: var(--saffron);
+  border-color: var(--saffron);
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+  background: var(--saffron);
+  color: #0B1A19;
+}
+
+[data-theme="dark"] .btn-ghost {
+  background: rgba(244, 239, 230, 0.08);
+  color: #F4EFE6;
+}
+
+[data-theme="dark"] .btn-ghost:hover {
+  background: rgba(245, 184, 75, 0.18);
+  color: var(--saffron);
+}
+
+[data-theme="dark"] .icon-btn {
+  background: rgba(244, 239, 230, 0.08);
+  color: #F4EFE6;
+}
+
+[data-theme="dark"] .icon-btn:hover {
+  background: var(--clay);
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .nav-link.is-active {
+  background: rgba(245, 184, 75, 0.14);
+  color: var(--saffron);
+}
+
+[data-theme="dark"] .dropdown-link:hover {
+  background: rgba(245, 184, 75, 0.12);
+  color: var(--saffron);
+}
+
+[data-theme="dark"] .form-control {
+  background: #0F2322;
+  border-color: rgba(244, 239, 230, 0.18);
+  color: #F4EFE6;
+}
+
+[data-theme="dark"] .form-control:focus {
+  border-color: var(--saffron);
+  box-shadow: 0 0 0 3px rgba(245, 184, 75, 0.18);
+}
+
+[data-theme="dark"] .data-table th {
+  background: #0F2322;
+  color: var(--saffron);
+}
+
+[data-theme="dark"] .device-screen {
+  background: #12292B;
+  color: #F4EFE6;
+}
+
+[data-theme="dark"] .skeleton {
+  background: linear-gradient(90deg, #0F2322 25%, #163235 50%, #0F2322 75%);
+  background-size: 200% 100%;
+}

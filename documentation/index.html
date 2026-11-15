@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nestly Co-Living — Template Documentation (v1.0.0)</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <main class="section">
+    <div class="container" style="max-width:960px;">
+      <div class="section-header">
+        <span class="section-tag">Official Documentation • v1.0.0</span>
+        <h1>Nestly Co-Living Website &amp; Resident Portal Guide</h1>
+        <p>Complete reference for customizing colors, typography, brand name, currency, images, and third-party integrations.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:var(--space-6);">
+        <article class="tilt-card" style="background:var(--bg-surface);text-align:start;align-items:flex-start;">
+          <span class="card-tag">1. Quick Start &amp; Installation</span>
+          <h3>Zero Build Step Required</h3>
+          <p style="max-width:none;">Nestly is built with pure semantic HTML5, CSS3 custom properties, and vanilla ES6+ JavaScript. Open <code>index.html</code> directly in any modern browser or serve the folder with any static host (Netlify, Vercel, GitHub Pages, Cloudflare Pages, or Nginx).</p>
+        </article>
+
+        <article class="tilt-card" style="background:var(--bg-surface);text-align:start;align-items:flex-start;">
+          <span class="card-tag">2. Customizing Brand Palette &amp; Fonts</span>
+          <h3>Edit <code>assets/css/style.css</code> &amp; <code>assets/css/dark-mode.css</code></h3>
+          <p style="max-width:none;">All colors are controlled via `:root` variables at the top of <code>assets/css/style.css</code>: <code>--ink (#0F2B2A)</code>, <code>--teal (#14746F)</code>, <code>--clay (#E2674A)</code>, <code>--saffron (#F5B84B)</code>, <code>--sage (#BFD8C5)</code>, <code>--cream (#FBF6EE)</code>, <code>--sand (#F1E7D6)</code>, and <code>--mist (#E9F1EE)</code>.</p>
+        </article>
+
+        <article class="tilt-card" style="background:var(--bg-surface);text-align:start;align-items:flex-start;">
+          <span class="card-tag">3. Integration Points (Marked with TODO)</span>
+          <h3>Connecting Forms, Maps &amp; Payments</h3>
+          <p style="max-width:none;">Search the codebase for <code>TODO:</code> comments to locate integration hooks for Formspree/Netlify Forms (<code>contact.html</code>), Mailchimp/ConvertKit (<code>home-2.html</code> &amp; footer), Google Maps JS SDK (<code>locations.html</code>, <code>home-2.html</code>), and Stripe/PayPal/Razorpay UPI (<code>book-now.html</code>, <code>dashboard/pay-rent.html</code>).</p>
+        </article>
+
+        <article class="tilt-card" style="background:var(--bg-surface);text-align:start;align-items:flex-start;">
+          <span class="card-tag">4. Credits &amp; Changelog</span>
+          <h3>Version 1.0.0 (November 2026)</h3>
+          <p style="max-width:none;">Typography: Fraunces, Plus Jakarta Sans, and Space Grotesk via Google Fonts. Icons: Custom inline SVG &amp; Lucide-compatible vector sprite. Photography: Local optimized WebP + JPEG photographic assets in <code>assets/images/</code>.</p>
+        </article>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

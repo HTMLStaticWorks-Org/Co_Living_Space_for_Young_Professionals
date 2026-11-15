@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messages & Smart Alerts — Nestly Co-Living Portal</title>
+  <meta name="description" content="Chat live with House Captain Karthik or check your parcel locker PINs.">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body>
+  <a href="#dashboard-main" class="skip-link">Skip to dashboard content</a>
+
+  <div class="dashboard-shell">
+    <!-- SIDEBAR -->
+    <aside class="dashboard-sidebar" aria-label="Portal Navigation">
+      <div class="sidebar-brand">
+        <a href="../index.html" class="brand-logo">
+          <span class="brand-mark">N</span>
+          <span>Nestly</span>
+        </a>
+        <span class="sidebar-role-badge">Resident Pass • #304</span>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Sidebar Menu">
+        <div class="sidebar-section-label">My Residency</div>
+        <a href="dashboard.html" class="sidebar-link"><span>Overview</span></a>
+        <a href="pay-rent.html" class="sidebar-link"><span>Pay Rent & Dues</span></a>
+        <a href="maintenance.html" class="sidebar-link"><span>Maintenance Helpdesk</span></a>
+        <a href="amenity-booking.html" class="sidebar-link"><span>Amenity & Pod Slots</span></a>
+        <a href="community-board.html" class="sidebar-link"><span>Community Board</span></a>
+        <a href="messages.html" class="sidebar-link is-active"><span>House Captain Chat</span></a>
+        <a href="documents.html" class="sidebar-link"><span>Agreements & KYC</span></a>
+        <a href="profile-settings.html" class="sidebar-link"><span>Profile & Preferences</span></a>
+
+        <div class="sidebar-section-label">Quick Links</div>
+        <a href="../admin/overview.html" class="sidebar-link"><span>Switch to Admin Console →</span></a>
+        <a href="../index.html" class="sidebar-link"><span>← Public Website</span></a>
+      </nav>
+
+      <div class="sidebar-user-card">
+        <div style="width:42px;height:42px;border-radius:50%;background:var(--clay);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;flex-shrink:0;">RS</div>
+        <div style="min-width:0;">
+          <div style="font-weight:700;font-size:0.9rem;color:var(--cream);">Riya Sharma</div>
+          <div style="font-size:0.75rem;color:rgba(251,246,238,0.68);">Suite 304 • Veranda Studio</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN WORKSPACE -->
+    <div class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button type="button" class="icon-btn mobile-menu-toggle" data-sidebar-toggle aria-label="Toggle Sidebar Menu">☰</button>
+          <div>
+            <span class="font-mono" style="font-size:0.74rem;color:var(--teal);text-transform:uppercase;font-weight:700;">Indiranagar 100ft Grove • Suite #304</span>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button type="button" class="icon-btn" data-rtl-toggle aria-label="Switch RTL">RTL</button>
+          <button type="button" class="icon-btn" data-theme-toggle aria-label="Toggle Dark Mode">◐</button>
+          <a href="../book-now.html" class="btn btn-primary" style="height:40px;padding-inline:18px;font-size:0.84rem;">Invite a Friend (₹5k)</a>
+        </div>
+      </header>
+
+      <main id="dashboard-main" class="dashboard-content">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px;">
+          <div>
+            <span class="section-tag">Resident Pass • #304</span>
+            <h1 style="font-size:var(--text-2xl);">Messages & Smart Alerts</h1>
+            <p style="color:var(--text-secondary);">Chat live with House Captain Karthik or check your parcel locker PINs.</p>
+          </div>
+        </div>
+
+
+        <div class="grid-2" style="align-items:start;">
+          <div class="chat-box">
+            <div style="padding:16px 20px;background:var(--ink);color:var(--cream);display:flex;justify-content:space-between;align-items:center;">
+              <div>
+                <strong>Karthik Nair (House Captain)</strong>
+                <div style="font-size:0.75rem;color:var(--sage);">● Online at Indiranagar Reception</div>
+              </div>
+              <span class="status-chip status-paid">Direct Line</span>
+            </div>
+
+            <div class="chat-messages" id="chatMessagesFeed" aria-live="polite">
+              <div class="chat-bubble incoming">
+                <strong>Karthik (House Captain)</strong>
+                <p>Good morning Riya! Your Amazon parcel (#AMZ-882) has been placed in Smart Locker #04. Unlock PIN is 9104.</p>
+                <small style="opacity:0.7;font-size:0.72rem;">09:40 AM</small>
+              </div>
+              <div class="chat-bubble outgoing">
+                <p>Thanks Karthik! Also, could we get an extra bath mat during Thursday's housekeeping slot?</p>
+                <small style="opacity:0.75;font-size:0.72rem;">09:45 AM</small>
+              </div>
+              <div class="chat-bubble incoming">
+                <strong>Karthik (House Captain)</strong>
+                <p>Done! Added a fresh organic cotton bath mat to Suite 304's checklist for Thursday morning.</p>
+                <small style="opacity:0.7;font-size:0.72rem;">09:47 AM</small>
+              </div>
+            </div>
+
+            <form id="houseManagerChatForm" class="chat-input-bar">
+              <label for="chatMessageInput" class="skip-link">Write a message to your House Captain</label>
+              <input type="text" id="chatMessageInput" class="form-control" placeholder="Message Karthik (e.g. Guest pass for tonight, parcel check)..." required>
+              <button type="submit" class="btn btn-primary" style="flex-shrink:0;">Send</button>
+            </form>
+          </div>
+
+          <article class="tilt-card" style="background:var(--bg-surface);">
+            <span class="card-tag">Recent House Notifications</span>
+            <h3>Smart Alerts &amp; Deliveries</h3>
+            <div style="width:100%;display:flex;flex-direction:column;gap:14px;text-align:start;margin-top:var(--space-3);">
+              <div style="padding:14px;background:var(--bg-card);border-radius:var(--radius-sm);">
+                <strong>📦 Smart Parcel Locker #04</strong>
+                <p style="font-size:0.85rem;">Blue Tokai Coffee Roasters package arrived at 09:38 AM.</p>
+              </div>
+              <div style="padding:14px;background:var(--bg-card);border-radius:var(--radius-sm);">
+                <strong>🧹 Suite #304 Housekeeping Completed</strong>
+                <p style="font-size:0.85rem;">Linen swap and bathroom sanitization completed Tuesday 11:20 AM.</p>
+              </div>
+              <div style="padding:14px;background:var(--bg-card);border-radius:var(--radius-sm);">
+                <strong>🔑 Visitor Pass Issued</strong>
+                <p style="font-size:0.85rem;">Daytime guest QR code active for Maya Lin (Valid 2:00 PM – 9:00 PM).</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/plugins/charts.js" defer></script>
+  <script src="../assets/js/dashboard.js" defer></script>
+</body>
+</html>

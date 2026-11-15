@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Home, Riya — Nestly Co-Living Portal</title>
+  <meta name="description" content="Suite #304 (Veranda Executive Studio) • Lease active through May 2027">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body>
+  <a href="#dashboard-main" class="skip-link">Skip to dashboard content</a>
+
+  <div class="dashboard-shell">
+    <!-- SIDEBAR -->
+    <aside class="dashboard-sidebar" aria-label="Portal Navigation">
+      <div class="sidebar-brand">
+        <a href="../index.html" class="brand-logo">
+          <span class="brand-mark">N</span>
+          <span>Nestly</span>
+        </a>
+        <span class="sidebar-role-badge">Resident Pass • #304</span>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Sidebar Menu">
+        <div class="sidebar-section-label">My Residency</div>
+        <a href="dashboard.html" class="sidebar-link is-active"><span>Overview</span></a>
+        <a href="pay-rent.html" class="sidebar-link"><span>Pay Rent & Dues</span></a>
+        <a href="maintenance.html" class="sidebar-link"><span>Maintenance Helpdesk</span></a>
+        <a href="amenity-booking.html" class="sidebar-link"><span>Amenity & Pod Slots</span></a>
+        <a href="community-board.html" class="sidebar-link"><span>Community Board</span></a>
+        <a href="messages.html" class="sidebar-link"><span>House Captain Chat</span></a>
+        <a href="documents.html" class="sidebar-link"><span>Agreements & KYC</span></a>
+        <a href="profile-settings.html" class="sidebar-link"><span>Profile & Preferences</span></a>
+
+        <div class="sidebar-section-label">Quick Links</div>
+        <a href="../admin/overview.html" class="sidebar-link"><span>Switch to Admin Console →</span></a>
+        <a href="../index.html" class="sidebar-link"><span>← Public Website</span></a>
+      </nav>
+
+      <div class="sidebar-user-card">
+        <div style="width:42px;height:42px;border-radius:50%;background:var(--clay);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;flex-shrink:0;">RS</div>
+        <div style="min-width:0;">
+          <div style="font-weight:700;font-size:0.9rem;color:var(--cream);">Riya Sharma</div>
+          <div style="font-size:0.75rem;color:rgba(251,246,238,0.68);">Suite 304 • Veranda Studio</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN WORKSPACE -->
+    <div class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button type="button" class="icon-btn mobile-menu-toggle" data-sidebar-toggle aria-label="Toggle Sidebar Menu">☰</button>
+          <div>
+            <span class="font-mono" style="font-size:0.74rem;color:var(--teal);text-transform:uppercase;font-weight:700;">Indiranagar 100ft Grove • Suite #304</span>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button type="button" class="icon-btn" data-rtl-toggle aria-label="Switch RTL">RTL</button>
+          <button type="button" class="icon-btn" data-theme-toggle aria-label="Toggle Dark Mode">◐</button>
+          <a href="../book-now.html" class="btn btn-primary" style="height:40px;padding-inline:18px;font-size:0.84rem;">Invite a Friend (₹5k)</a>
+        </div>
+      </header>
+
+      <main id="dashboard-main" class="dashboard-content">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px;">
+          <div>
+            <span class="section-tag">Resident Pass • #304</span>
+            <h1 style="font-size:var(--text-2xl);">Welcome Home, Riya</h1>
+            <p style="color:var(--text-secondary);">Suite #304 (Veranda Executive Studio) • Lease active through May 2027</p>
+          </div>
+        </div>
+
+
+        <div class="grid-4">
+          <article class="tilt-card">
+            <span class="card-tag">November All-In Dues</span>
+            <h3 id="rentDueAmount" class="font-mono" style="font-size:1.9rem;">₹24,500</h3>
+            <span id="rentStatusBadge" class="status-chip status-pending">Due Nov 05, 2026</span>
+            <div class="card-actions"><a href="pay-rent.html" class="btn btn-primary">Pay Rent Now</a></div>
+          </article>
+
+          <article class="tilt-card">
+            <span class="card-tag">Open Requests</span>
+            <h3 class="font-mono" style="font-size:1.9rem;">1 Active</h3>
+            <span class="status-chip status-progress">Balcony Lamp Bulb (#MNT-4092)</span>
+            <div class="card-actions"><a href="maintenance.html" class="btn btn-secondary">Track Ticket</a></div>
+          </article>
+
+          <article class="tilt-card">
+            <span class="card-tag">Next Amenity Slot</span>
+            <h3 style="font-size:1.35rem;">Zoom Pod B • 4:00 PM</h3>
+            <span class="status-chip status-resolved">PIN: 4829#</span>
+            <div class="card-actions"><a href="amenity-booking.html" class="btn btn-secondary">Manage Slots</a></div>
+          </article>
+
+          <article class="tilt-card">
+            <span class="card-tag">Tonight at 8:00 PM</span>
+            <h3 style="font-size:1.35rem;">Dumpling Supper Club</h3>
+            <span class="status-chip status-resolved">18 Residents Going</span>
+            <div class="card-actions"><a href="community-board.html" class="btn btn-ghost">House Board</a></div>
+          </article>
+        </div>
+
+        <div class="grid-2">
+          <article class="tilt-card" style="background:var(--bg-surface);">
+            <span class="card-tag">Suite Telemetry (Included in Rent)</span>
+            <h3>Monthly Mesh Wi-Fi &amp; Solar Offset</h3>
+            <p>Your suite consumed 412 GB on the 1 Gbps VLAN this month; 72% of your suite's energy was offset by our rooftop solar array.</p>
+            <div style="width:100%;" data-chart-bars data-labels="Jun,Jul,Aug,Sep,Oct,Nov" data-values="310,340,390,360,425,412" data-prefix=""></div>
+          </article>
+
+          <article class="tilt-card" style="background:var(--bg-surface);">
+            <span class="card-tag">House Announcements</span>
+            <h3>Latest from Captain Karthik</h3>
+            <p>“Roof pergola string-light maintenance is complete! Join us tonight at 8 PM on Level 1 for fresh chili-oil dumplings and vinyl sets.”</p>
+            <div class="card-subtext">Posted 2 hours ago • Indiranagar Flagship</div>
+            <div class="card-actions"><a href="messages.html" class="btn btn-secondary">Message House Captain</a></div>
+          </article>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/plugins/charts.js" defer></script>
+  <script src="../assets/js/dashboard.js" defer></script>
+</body>
+</html>

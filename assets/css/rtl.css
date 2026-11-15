@@ -1,0 +1,49 @@
+/* ==========================================================================
+   NESTLY CO-LIVING — RTL SUPPORT STYLESHEET (rtl.css)
+   Full Right-to-Left layout & directional adjustments
+   ========================================================================== */
+
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .section-header,
+[dir="rtl"] .tilt-card,
+[dir="rtl"] .card {
+  text-align: center;
+}
+
+[dir="rtl"] .btn svg.icon-arrow {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .btn:hover svg.icon-arrow {
+  transform: scaleX(-1) translateX(4px);
+}
+
+[dir="rtl"] .footer-links a:hover {
+  transform: translateX(-4px);
+}
+
+[dir="rtl"] .mobile-drawer-panel {
+  transform: translateX(-100%);
+}
+
+[dir="rtl"] .mobile-drawer.is-open .mobile-drawer-panel {
+  transform: translateX(0);
+}
+
+@keyframes marqueeScrollRTL {
+  from { transform: translateX(0); }
+  to { transform: translateX(50%); }
+}
+
+[dir="rtl"] .marquee-track {
+  animation-name: marqueeScrollRTL;
+}
+
+[dir="rtl"] .dashboard-sidebar {
+  border-inline-end: none;
+  border-inline-start: 1px solid var(--border-subtle);
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pay Rent & Download HRA Receipts — Nestly Co-Living Portal</title>
+  <meta name="description" content="Manage your all-inclusive monthly invoice, payment methods, and tax receipts.">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body>
+  <a href="#dashboard-main" class="skip-link">Skip to dashboard content</a>
+
+  <div class="dashboard-shell">
+    <!-- SIDEBAR -->
+    <aside class="dashboard-sidebar" aria-label="Portal Navigation">
+      <div class="sidebar-brand">
+        <a href="../index.html" class="brand-logo">
+          <span class="brand-mark">N</span>
+          <span>Nestly</span>
+        </a>
+        <span class="sidebar-role-badge">Resident Pass • #304</span>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Sidebar Menu">
+        <div class="sidebar-section-label">My Residency</div>
+        <a href="dashboard.html" class="sidebar-link"><span>Overview</span></a>
+        <a href="pay-rent.html" class="sidebar-link is-active"><span>Pay Rent & Dues</span></a>
+        <a href="maintenance.html" class="sidebar-link"><span>Maintenance Helpdesk</span></a>
+        <a href="amenity-booking.html" class="sidebar-link"><span>Amenity & Pod Slots</span></a>
+        <a href="community-board.html" class="sidebar-link"><span>Community Board</span></a>
+        <a href="messages.html" class="sidebar-link"><span>House Captain Chat</span></a>
+        <a href="documents.html" class="sidebar-link"><span>Agreements & KYC</span></a>
+        <a href="profile-settings.html" class="sidebar-link"><span>Profile & Preferences</span></a>
+
+        <div class="sidebar-section-label">Quick Links</div>
+        <a href="../admin/overview.html" class="sidebar-link"><span>Switch to Admin Console →</span></a>
+        <a href="../index.html" class="sidebar-link"><span>← Public Website</span></a>
+      </nav>
+
+      <div class="sidebar-user-card">
+        <div style="width:42px;height:42px;border-radius:50%;background:var(--clay);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;flex-shrink:0;">RS</div>
+        <div style="min-width:0;">
+          <div style="font-weight:700;font-size:0.9rem;color:var(--cream);">Riya Sharma</div>
+          <div style="font-size:0.75rem;color:rgba(251,246,238,0.68);">Suite 304 • Veranda Studio</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN WORKSPACE -->
+    <div class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button type="button" class="icon-btn mobile-menu-toggle" data-sidebar-toggle aria-label="Toggle Sidebar Menu">☰</button>
+          <div>
+            <span class="font-mono" style="font-size:0.74rem;color:var(--teal);text-transform:uppercase;font-weight:700;">Indiranagar 100ft Grove • Suite #304</span>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button type="button" class="icon-btn" data-rtl-toggle aria-label="Switch RTL">RTL</button>
+          <button type="button" class="icon-btn" data-theme-toggle aria-label="Toggle Dark Mode">◐</button>
+          <a href="../book-now.html" class="btn btn-primary" style="height:40px;padding-inline:18px;font-size:0.84rem;">Invite a Friend (₹5k)</a>
+        </div>
+      </header>
+
+      <main id="dashboard-main" class="dashboard-content">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px;">
+          <div>
+            <span class="section-tag">Resident Pass • #304</span>
+            <h1 style="font-size:var(--text-2xl);">Pay Rent & Download HRA Receipts</h1>
+            <p style="color:var(--text-secondary);">Manage your all-inclusive monthly invoice, payment methods, and tax receipts.</p>
+          </div>
+        </div>
+
+
+        <div class="grid-2">
+          <article class="tilt-card" style="background:var(--bg-surface);border:2px solid var(--clay);">
+            <span id="rentStatusBadge" class="status-chip status-pending">Current Invoice • #INV-2026-1109</span>
+            <h2 id="rentDueAmount" class="font-mono" style="font-size:2.4rem;">₹24,500</h2>
+            <p>Includes Suite #304 Rent (₹21,500), Unlimited 1 Gbps Fibre &amp; Power Backup (₹1,500), and Bi-Weekly Housekeeping &amp; Linen Care (₹1,500).</p>
+            <!-- TODO: Connect Stripe / PayPal / Razorpay UPI live checkout token -->
+            <div class="btn-group" style="margin-top:var(--space-4);">
+              <button type="button" id="payRentNowBtn" class="btn btn-primary">Pay ₹24,500 Instantly (UPI / Card)</button>
+            </div>
+            <div class="card-subtext">Supported: UPI (Zero Fee) • Stripe Cards • PayPal</div>
+          </article>
+
+          <article class="tilt-card" style="background:var(--bg-surface);">
+            <span class="card-tag">Escrow Deposit Protection</span>
+            <h3 class="font-mono">₹24,500 Held in Escrow</h3>
+            <p>Your 1-month refundable security deposit is protected with HDFC Escrow Reference #ESC-99281. Guaranteed 48-hour return upon checkout.</p>
+            <div class="card-subtext">Zero Brokerage Paid • HRA Tax-Ready Invoices</div>
+          </article>
+        </div>
+
+        <article class="tilt-card" style="background:var(--bg-surface);align-items:stretch;">
+          <span class="card-tag" style="align-self:center;">Downloadable Tax &amp; HRA Receipts</span>
+          <h3>Payment History Ledger</h3>
+          <div class="table-wrap" style="margin-top:var(--space-4);">
+            <table class="data-table responsive-table">
+              <thead>
+                <tr>
+                  <th>Invoice ID</th>
+                  <th>Billing Cycle</th>
+                  <th>Amount</th>
+                  <th>Method</th>
+                  <th>Status</th>
+                  <th>Receipt</th>
+                </tr>
+              </thead>
+              <tbody id="paymentHistoryBody">
+                <tr>
+                  <td data-label="Invoice ID" class="font-mono">#INV-2026-1004</td>
+                  <td data-label="Billing Cycle">October 2026</td>
+                  <td data-label="Amount" class="font-mono">₹24,500</td>
+                  <td data-label="Method">UPI AutoPay</td>
+                  <td data-label="Status"><span class="status-chip status-paid">Paid</span></td>
+                  <td data-label="Receipt"><button type="button" class="btn btn-ghost" data-download-receipt="INV-2026-1004" style="height:38px;padding-inline:16px;font-size:0.82rem;">Download PDF</button></td>
+                </tr>
+                <tr>
+                  <td data-label="Invoice ID" class="font-mono">#INV-2026-0903</td>
+                  <td data-label="Billing Cycle">September 2026</td>
+                  <td data-label="Amount" class="font-mono">₹24,500</td>
+                  <td data-label="Method">Stripe Visa ••4210</td>
+                  <td data-label="Status"><span class="status-chip status-paid">Paid</span></td>
+                  <td data-label="Receipt"><button type="button" class="btn btn-ghost" data-download-receipt="INV-2026-0903" style="height:38px;padding-inline:16px;font-size:0.82rem;">Download PDF</button></td>
+                </tr>
+                <tr>
+                  <td data-label="Invoice ID" class="font-mono">#INV-2026-0802</td>
+                  <td data-label="Billing Cycle">August 2026</td>
+                  <td data-label="Amount" class="font-mono">₹24,500</td>
+                  <td data-label="Method">UPI Instant</td>
+                  <td data-label="Status"><span class="status-chip status-paid">Paid</span></td>
+                  <td data-label="Receipt"><button type="button" class="btn btn-ghost" data-download-receipt="INV-2026-0802" style="height:38px;padding-inline:16px;font-size:0.82rem;">Download PDF</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/plugins/charts.js" defer></script>
+  <script src="../assets/js/dashboard.js" defer></script>
+</body>
+</html>
