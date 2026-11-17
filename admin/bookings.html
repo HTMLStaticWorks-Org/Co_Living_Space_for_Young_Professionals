@@ -9,10 +9,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/dashboard.css">
-  <link rel="stylesheet" href="../assets/css/dark-mode.css">
-  <link rel="stylesheet" href="../assets/css/rtl.css">
+  <link rel="stylesheet" href="../assets/css/style.css?v=4.0">
+  <link rel="stylesheet" href="../assets/css/dashboard.css?v=4.0">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css?v=4.0">
+  <link rel="stylesheet" href="../assets/css/rtl.css?v=4.0">
 </head>
 <body>
   <a href="#dashboard-main" class="skip-link">Skip to dashboard content</a>
@@ -21,9 +21,14 @@
     <!-- SIDEBAR -->
     <aside class="dashboard-sidebar" aria-label="Portal Navigation">
       <div class="sidebar-brand">
-        <a href="../index.html" class="brand-logo">
-          <span class="brand-mark">N</span>
-          <span>Nestly</span>
+        <a href="../index.html" class="brand-logo" aria-label="Nestly Co-Living Home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 19.5V9.5L12 3.5L20 9.5V19.5" stroke="#F5B84B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 18.5V11L16.2 18.5V11" stroke="#E2674A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="7.2" r="1.3" fill="#BFD8C5"/></svg>
+          </span>
+          <span>
+            Nestly
+            <small class="brand-tagline-mini">Live well. Grow together.</small>
+          </span>
         </a>
         <span class="sidebar-role-badge">Admin Console</span>
       </div>
@@ -116,6 +121,17 @@
           </div>
         </article>
 
+      
+        <!-- ADMIN FOOTER -->
+        <footer class="portal-footer" style="margin-top:var(--space-8);padding-top:var(--space-5);padding-bottom:var(--space-4);border-top:1px solid var(--border-subtle);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-3);font-size:var(--text-xs);color:var(--text-muted);">
+          <span>© 2026 Nestly Co-Living Operations Console • Bengaluru Flagship</span>
+          <div style="display:flex;gap:var(--space-4);flex-wrap:wrap;">
+            <a href="../privacy-policy.html" style="color:inherit;">Privacy Policy</a>
+            <a href="../terms.html" style="color:inherit;">Terms</a>
+            <a href="../contact.html" style="color:inherit;">Support</a>
+            <a href="../index.html" style="color:var(--saffron);">Back to Main Site</a>
+          </div>
+        </footer>
       </main>
     </div>
   </div>

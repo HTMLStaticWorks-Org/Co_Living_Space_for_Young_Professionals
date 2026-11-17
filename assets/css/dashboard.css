@@ -54,14 +54,90 @@
 
 .sidebar-brand {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
   padding-bottom: var(--space-4);
   border-bottom: 1px solid rgba(251, 246, 238, 0.12);
 }
 
 .sidebar-brand .brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
   color: var(--cream);
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.sidebar-brand .brand-logo:hover {
+  opacity: 0.92;
+}
+
+.sidebar-brand .brand-logo .brand-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--ink);
+  border: 1px solid rgba(245, 184, 75, 0.3);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.sidebar-brand .brand-logo:hover .brand-mark {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.sidebar-brand .brand-tagline-mini {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #2EC4B6;
+  margin-top: -3px;
+  white-space: nowrap;
+}
+
+/* Dashboard Topbar Brand for Mobile */
+.dashboard-topbar-brand {
+  display: none;
+}
+
+@media (max-width: 1023.98px) {
+  .dashboard-topbar-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text-primary);
+  }
+  .dashboard-topbar-brand .brand-mark {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--ink);
+    color: var(--saffron);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+  }
+  .dashboard-topbar-brand .brand-tagline-mini {
+    display: none;
+  }
+  .topbar-suite-badge {
+    display: none;
+  }
 }
 
 .sidebar-role-badge {
@@ -74,6 +150,7 @@
   font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .sidebar-nav {

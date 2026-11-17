@@ -138,48 +138,111 @@
         closeDrawer();
       }
     });
+
+    document.addEventListener('click', (e) => {
+      const toggle = e.target.closest('.mobile-nav-toggle');
+      if (!toggle) return;
+      const item = toggle.closest('.mobile-nav-item');
+      if (item) {
+        const isOpen = item.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      }
+    });
+
+    // Auto-detect & highlight active navigation items across desktop and mobile hamburger drawer
+    try {
+      const fullPath = decodeURIComponent(window.location.pathname || '');
+      const rawPath = fullPath.replace(/\\/g, '/').split('/').pop().split('?')[0].split('#')[0].toLowerCase();
+      const activeFile = (!rawPath || rawPath === '' || rawPath === '/') ? 'index.html' : rawPath;
+
+      // 1. Mobile Drawer Nav Links (both direct links and nested submenu links)
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-list a');
+      mobileNavLinks.forEach((link) => {
+        const rawHref = link.getAttribute('href');
+        if (!rawHref) return;
+        const linkFile = rawHref.replace(/\\/g, '/').split('/').pop().split('?')[0].split('#')[0].toLowerCase();
+        if (linkFile === activeFile) {
+          link.classList.add('is-active');
+          link.setAttribute('aria-current', 'page');
+
+          // If inside a submenu, open and highlight parent item & toggle button
+          const subMenu = link.closest('.mobile-sub-menu');
+          if (subMenu) {
+            const parentItem = subMenu.closest('.mobile-nav-item');
+            if (parentItem) {
+              parentItem.classList.add('is-open');
+              const parentToggle = parentItem.querySelector('.mobile-nav-toggle');
+              if (parentToggle) {
+                parentToggle.classList.add('is-active');
+                parentToggle.setAttribute('aria-expanded', 'true');
+              }
+            }
+          }
+        }
+      });
+
+      // 2. Desktop Navigation Items & Dropdown Links
+      const desktopLinks = document.querySelectorAll('.main-nav a, .dropdown-link');
+      desktopLinks.forEach((link) => {
+        const rawHref = link.getAttribute('href');
+        if (!rawHref) return;
+        const linkFile = rawHref.replace(/\\/g, '/').split('/').pop().split('?')[0].split('#')[0].toLowerCase();
+        if (linkFile === activeFile) {
+          link.classList.add('is-active');
+          link.setAttribute('aria-current', 'page');
+          const navItem = link.closest('.nav-item');
+          if (navItem) {
+            const topNavLink = navItem.querySelector('.nav-link');
+            if (topNavLink) topNavLink.classList.add('is-active');
+          }
+        }
+      });
+
+      // Desktop Nav Dropdowns: Mutual Exclusion & Clean Dismissal
+      const desktopNavItems = document.querySelectorAll('.main-nav .nav-item');
+      desktopNavItems.forEach((item) => {
+        // When hovering an item, immediately blur any other focused item so its dropdown closes
+        item.addEventListener('mouseenter', () => {
+          desktopNavItems.forEach((sibling) => {
+            if (sibling !== item) {
+              const active = document.activeElement;
+              if (active && sibling.contains(active)) {
+                active.blur();
+              }
+            }
+          });
+        });
+      });
+
+      // Escape key closes any active dropdown
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          const active = document.activeElement;
+          if (active && active.closest('.main-nav .nav-item')) {
+            active.blur();
+          }
+        }
+      });
+
+      // Clicking outside main-nav dismisses any focused dropdown
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.main-nav')) {
+          const active = document.activeElement;
+          if (active && active.closest('.main-nav .nav-item')) {
+            active.blur();
+          }
+        }
+      });
+    } catch (err) {
+      /* silent */
+    }
   }
 
   /* ------------------------------------------------------------------------
      4. 3D TILT CARD ENGINE (Perspective 900px, max ±10deg + radial glare)
      ------------------------------------------------------------------------ */
   function initTiltCards() {
-    const isTouch = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
-    const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const cards = document.querySelectorAll('.tilt-card');
-
-    cards.forEach((card) => {
-      if (!card.querySelector('.tilt-glare')) {
-        const glare = document.createElement('div');
-        glare.className = 'tilt-glare';
-        glare.setAttribute('aria-hidden', 'true');
-        card.appendChild(glare);
-      }
-
-      if (isTouch || reducedMotion) return;
-
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX = ((y - centerY) / centerY) * -8;
-        const rotateY = ((x - centerX) / centerX) * 8;
-
-        const glareX = Math.round((x / rect.width) * 100);
-        const glareY = Math.round((y / rect.height) * 100);
-
-        card.style.transform = 'perspective(900px) rotateX(' + rotateX.toFixed(2) + 'deg) rotateY(' + rotateY.toFixed(2) + 'deg) translateY(-4px)';
-        card.style.setProperty('--glare-x', glareX + '%');
-        card.style.setProperty('--glare-y', glareY + '%');
-      });
-
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0)';
-      });
-    });
+    // 3D tilt animation permanently disabled throughout the website to prevent disturbing content
   }
 
   /* ------------------------------------------------------------------------
@@ -534,6 +597,16 @@
         updateBookingSummary();
       }
 
+      indicators.forEach((ind) => {
+        ind.style.cursor = 'pointer';
+        ind.addEventListener('click', () => {
+          const target = parseInt(ind.getAttribute('data-step-indicator'), 10);
+          if (target && target <= 5) {
+            showStep(target);
+          }
+        });
+      });
+
       function updateBookingSummary() {
         const loc = document.getElementById('bookLocation');
         const room = document.getElementById('bookRoomType');
@@ -617,15 +690,25 @@
     });
 
     // Show/hide password toggle on login/register
-    document.querySelectorAll('[data-toggle-password]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const targetId = btn.getAttribute('data-toggle-password');
-        const input = document.getElementById(targetId);
-        if (!input) return;
-        const isPass = input.type === 'password';
-        input.type = isPass ? 'text' : 'password';
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-toggle-password]');
+      if (!btn) return;
+      e.preventDefault();
+      const targetId = btn.getAttribute('data-toggle-password');
+      const input = document.getElementById(targetId);
+      if (!input) return;
+      const isPass = input.type === 'password';
+      input.type = isPass ? 'text' : 'password';
+      btn.setAttribute('aria-label', isPass ? 'Hide password' : 'Show password');
+      btn.classList.toggle('is-visible', isPass);
+      const eyeOpen = btn.querySelector('.eye-open');
+      const eyeClosed = btn.querySelector('.eye-closed');
+      if (eyeOpen && eyeClosed) {
+        eyeOpen.style.display = isPass ? 'none' : 'block';
+        eyeClosed.style.display = isPass ? 'block' : 'none';
+      } else if (!eyeOpen && !eyeClosed) {
         btn.textContent = isPass ? 'Hide' : 'Show';
-      });
+      }
     });
 
     // RSVP buttons on Community & Home 2
@@ -665,12 +748,95 @@
   }
 
   /* ------------------------------------------------------------------------
+     12. RUNNING MODEL MARQUEE ENGINE (Guaranteed 60FPS continuous scrolling)
+     ------------------------------------------------------------------------ */
+  function initMarqueeEngine() {
+    const strips = document.querySelectorAll('.marquee-strip');
+    strips.forEach((strip) => {
+      const track = strip.querySelector('.marquee-track');
+      if (!track) return;
+
+      // Duplicate children to ensure continuous infinite loop
+      if (track.children.length < 24) {
+        const items = Array.from(track.children);
+        items.forEach((item) => {
+          const clone = item.cloneNode(true);
+          clone.setAttribute('aria-hidden', 'true');
+          track.appendChild(clone);
+        });
+      }
+
+      // Stop CSS animation so JavaScript provides reliable 60FPS continuous scrolling
+      track.style.animation = 'none';
+
+      let scrollX = 0;
+      let animationFrameId;
+
+      function step() {
+        const isRtl = document.documentElement.getAttribute('dir') === 'rtl';
+        const speed = isRtl ? -0.85 : 0.85;
+        const halfWidth = track.scrollWidth / 2;
+
+        if (halfWidth > 0) {
+          scrollX += speed;
+          if (!isRtl && scrollX >= halfWidth) {
+            scrollX = 0;
+          } else if (isRtl && Math.abs(scrollX) >= halfWidth) {
+            scrollX = 0;
+          }
+          track.style.transform = `translate3d(${-scrollX}px, 0, 0)`;
+        }
+        animationFrameId = requestAnimationFrame(step);
+      }
+
+      animationFrameId = requestAnimationFrame(step);
+    });
+  }
+
+  /* ------------------------------------------------------------------------
+     13. INTERACTIVE HOUSE ARCHITECTURE FLOOR SELECTOR
+     ------------------------------------------------------------------------ */
+  function initFloorSelector() {
+    const cards = document.querySelectorAll('.floor-selector-card');
+    const source = document.getElementById('floorArchitectureSource');
+    const img = document.getElementById('floorArchitectureImg');
+    const badge = document.getElementById('floorBadgeOverlay');
+
+    if (!cards.length || !img) return;
+
+    cards.forEach((card) => {
+      card.addEventListener('click', () => {
+        cards.forEach((c) => {
+          c.classList.remove('is-active');
+          c.style.borderColor = '';
+          c.style.background = '';
+        });
+        card.classList.add('is-active');
+        card.style.borderColor = 'var(--teal)';
+        card.style.background = 'rgba(20, 116, 111, 0.08)';
+
+        const basePath = card.getAttribute('data-floor-img');
+        const badgeText = card.getAttribute('data-floor-badge');
+
+        if (basePath) {
+          if (source) source.srcset = basePath + '.webp';
+          img.src = basePath + '.jpg';
+        }
+        if (badge && badgeText) {
+          badge.textContent = badgeText;
+        }
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------------------
      INITIALIZE ON DOM READY
      ------------------------------------------------------------------------ */
   document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initRTL();
     initNavigation();
+    initMarqueeEngine();
     initTiltCards();
     initRevealAndCounters();
     initTabsAndAccordions();
@@ -679,5 +845,6 @@
     initGalleryAndLightbox();
     initBookingAndForms();
     initCountdown();
+    initFloorSelector();
   });
 })();
