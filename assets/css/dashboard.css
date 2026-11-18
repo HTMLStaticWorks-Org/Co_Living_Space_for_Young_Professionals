@@ -108,33 +108,7 @@
   white-space: nowrap;
 }
 
-/* Dashboard Topbar Brand for Mobile */
-.dashboard-topbar-brand {
-  display: none;
-}
-
 @media (max-width: 1023.98px) {
-  .dashboard-topbar-brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    color: var(--text-primary);
-  }
-  .dashboard-topbar-brand .brand-mark {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    background: var(--ink);
-    color: var(--saffron);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--shadow-sm);
-  }
-  .dashboard-topbar-brand .brand-tagline-mini {
-    display: none;
-  }
   .topbar-suite-badge {
     display: none;
   }
@@ -232,6 +206,69 @@
   position: sticky;
   top: 0;
   z-index: 1100;
+  max-width: 100%;
+}
+
+.dashboard-topbar > div:first-child {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.dashboard-topbar .header-actions {
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+@media (max-width: 767.98px) {
+  .dashboard-topbar {
+    height: 64px;
+    padding-inline: var(--space-4);
+    gap: var(--space-2);
+  }
+
+  .dashboard-topbar > div:first-child {
+    gap: 8px !important;
+  }
+
+  .dashboard-topbar > div:first-child > div:not(.topbar-suite-badge) {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .dashboard-topbar > div:first-child > div:not(.topbar-suite-badge) span {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .dashboard-topbar .header-actions .btn {
+    min-height: 38px;
+    height: 38px !important;
+    padding-inline: 12px !important;
+    font-size: 0.78rem !important;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .dashboard-topbar {
+    padding-inline: 12px;
+  }
+
+  .dashboard-topbar .mobile-menu-toggle {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+  }
+
+  .dashboard-topbar .header-actions .btn {
+    min-height: 34px;
+    height: 34px !important;
+    padding-inline: 10px !important;
+    font-size: 0.74rem !important;
+    gap: 4px;
+  }
 }
 
 .dashboard-content {
